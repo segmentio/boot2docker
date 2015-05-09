@@ -1,10 +1,14 @@
 machine:
-  pre:
-    - curl -LO https://dl.bintray.com/mitchellh/packer/packer_0.7.5_linux_amd64.zip
-    - unzip -o packer_0.7.5_linux_amd64.zip -d /home/ubuntu/bin/
+  environment:
+    PACKER_VERSION: 0.7.5
+    PACKER_BIN: ./packer-$PACKER_VERSION/packer
 dependencies:
+  cache_directories:
+    - packer-$PACKER_VERSION
+  pre:
+    - sh ./install-packer.sh $PACKER_VERSION
   override:
-    - packer version
+    - $PACKER_BIN version
 test:
   override:
-    - packer validate template.json
+    - $PACKER_BIN validate template.json
