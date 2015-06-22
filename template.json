@@ -1,6 +1,6 @@
 {
     "push": {
-        "name": "dduportal/boot2docker"
+        "name": "segment-atlas/boot2docker"
     },
     "variables": {
         "B2D_ISO_FILE": "boot2docker.iso",
