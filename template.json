@@ -20,7 +20,7 @@
         "guest_os_type": "Linux_64",
         "ssh_username": "docker",
         "ssh_password": "tcuser",
-        "shutdown_command": "sudo poweroff"
+        "shutdown_command": "echo 'shutdown -P now' > shutdown.sh; echo 'packer' | sudo -S sh 'shutdown.sh'",
     }, {
         "type": "vmware-iso",
         "vmx_data" : {
